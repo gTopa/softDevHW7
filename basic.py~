@@ -1,0 +1,26 @@
+import sqlite3
+
+f = "discobandit.db"
+
+db = sqlite3.connect(f)
+
+#two cursors
+c = db.cursor()
+d = db.cursor()
+
+def findAVG(id):
+    q = "SELECT mark FROM courses WHERE courses.id = " + str(id) + ";"
+    sum = 0.0
+    ctr = 0
+    for grade in d.execute(q):
+        sum += grade[0]
+        ctr += 1
+    return sum / ctr
+
+cmd = "SELECT name, id FROM students;"
+
+for record in c.execute(cmd):
+     print "Name: %s, ID: %d, Average: %f"%(record[0], record[1], calcAvg(record[1]))
+
+db.commit()
+db.close()
