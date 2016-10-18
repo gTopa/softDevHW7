@@ -1,10 +1,6 @@
 import sqlite3   #enable control of an sqlite database
-import csv       #facilitates CSV I/O
-
-
 
 f="discobandit.db"
-
 db = sqlite3.connect(f) #open if f exists, otherwise create
 c = db.cursor()    #facilitate db ops
 
@@ -29,8 +25,7 @@ while pos < len(info):
         tmp_id = idNum #set id = next student
         avg = 0 #reset
         ctr = 0
-print info[pos-1][0], info[pos-1][1], avg*1.0/ctr
-        
+print info[pos-1][0], info[pos-1][1], avg*1.0/ctr      
     
 #==========================================================
 db.commit() #save changes
