@@ -34,12 +34,10 @@ d=csv.DictReader(fObj)
 for k in d:
     p = "INSERT INTO courses VALUES (\""+k['code']+"\","+k['id']+","+k['mark']+")"
     c.execute(p)
-    
+
 fObj.close()
 
 
 #==========================================================
 db.commit() #save changes
 db.close()  #close database
-
-
